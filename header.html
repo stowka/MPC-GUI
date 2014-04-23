@@ -1,0 +1,37 @@
+		<nav class="navbar navbar-default navbar-static-top" role="navigation">
+			<a class="navbar-brand" href="./">Molecular property calculations</a>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="active">
+					<a data-toggle="modal" href="#add-project">
+						<span class="text-success">
+							<span class="glyphicon glyphicon-plus"></span>&nbsp;
+							New project&nbsp;
+						</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+		<div class="modal fade" id="add-project">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<form action="" method="POST" role="form">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title">New project</h4>
+						</div>
+						<div class="modal-body">
+							<div class="form-group">
+								<label for="add-project-name">Name</label>
+								<input type="text" class="form-control" id="add-project-name" name="add-project-name" placeholder="Name">
+								<label for="add-project-description">Description</label>
+								<textarea class="form-control" id="add-project-description" name="add-project-description" placeholder="Description"></textarea>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-primary btn-sm">Submit</button>
+						</div>
+					</form>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->

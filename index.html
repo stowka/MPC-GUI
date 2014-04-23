@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta author="Antoine De Gieter">
+		<meta author="Alexis Beaujon">
+		<title>Molecular property calculations</title>
+
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	</head>
+
+	<body>
+<!-- BEGIN MENU -->
+<!-- JSF REPLACE WITH: <ui:include src="header.html" /> -->
+		<nav class="navbar navbar-default navbar-static-top" role="navigation">
+			<a class="navbar-brand" href="./">Molecular property calculations</a>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="active">
+					<a data-toggle="modal" href="#add-project">
+						<span class="text-success">
+							<span class="glyphicon glyphicon-plus"></span>&nbsp;
+							New project&nbsp;
+						</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+		<div class="modal fade" id="add-project">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<form action="" method="POST" role="form">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title">New project</h4>
+						</div>
+						<div class="modal-body">
+							<div class="form-group">
+								<label for="add-project-name">Name</label>
+								<input type="text" class="form-control" id="add-project-name" name="add-project-name" placeholder="Name">
+								<label for="add-project-description">Description</label>
+								<textarea class="form-control" id="add-project-description" name="add-project-description" placeholder="Description"></textarea>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-primary btn-sm">Submit</button>
+						</div>
+					</form>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+<!-- END MENU -->
+
+		<div class="container">
+
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<h3>
+						Projects
+					</h3>
+					<p class="text-center">
+						<div class="input-group input-group-sm">
+							<input type="search" class="form-control" id="filter" placeholder="Filter (case-sensitive)" autofocus>
+							<span class="input-group-addon"><span class="glyphicon glyphicon-filter"></span></span>
+						</div>
+					</p>
+				</div>
+			</div>
+
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Name</th>
+						<th>Created on</th>
+						<th>Modified on</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody id="projects">
+
+					<!--
+					  --
+					  -- Loop
+					  --
+					  -->
+
+					<tr>
+						<td>76</td>
+						<td>
+							<a href="project.html" class="text-primary">Project_1</a>
+						</td>
+						<td>2014-04-11</td>
+						<td>2014-04-15</td>
+						<td class="text-center">
+							<a href="#" onclick="return confirm('Are you sure?');" class="text-danger"><span class="glyphicon glyphicon-remove"></span></a>
+						</td>
+					</tr>
+					<tr>
+						<td>45</td>
+						<td>
+							<a href="project.html" class="text-primary">Blabla</a>
+						</td>
+						<td>2014-04-10</td>
+						<td>2014-04-10</td>
+						<td class="text-center">
+							<a href="#" onclick="return confirm('Are you sure?');" class="text-danger"><span class="glyphicon glyphicon-remove"></span></a>
+						</td>
+					</tr>
+					<tr>
+						<td>90</td>
+						<td>
+							<a href="project.html" class="text-primary">Wow</a>
+						</td>
+						<td>2014-04-14</td>
+						<td>2014-04-14</td>
+						<td class="text-center">
+							<a href="#" onclick="return confirm('Are you sure?');" class="text-danger"><span class="glyphicon glyphicon-remove"></span></a>
+						</td>
+					</tr>
+					<tr>
+						<td>18</td>
+						<td>
+							<a href="project.html" class="text-primary">Yoohoo</a>
+						</td>
+						<td>2014-04-09</td>
+						<td>2014-04-11</td>
+						<td class="text-center">
+							<a href="#" onclick="return confirm('Are you sure?');" class="text-danger"><span class="glyphicon glyphicon-remove"></span></a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+<!-- BEGIN MENU -->
+<!-- JSF REPLACE WITH: <ui:include src="footer.html" /> -->
+		<div class="panel-footer" style="bottom:0; left:0; right:0; position:fixed;">
+			&copy; 2014 - University of Portsmouth
+		</div>
+<!-- END MENU -->
+
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			$("#filter").keyup(function() {
+				var rows = $("#projects").find("tr").hide();
+				var data = this.value.split(" ");
+				$.each(data, function(i, v) {
+					rows.filter(":contains('" + v + "')").show();
+				});
+			});
+		</script>
+	</body>
+</html>

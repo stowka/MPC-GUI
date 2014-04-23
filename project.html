@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta author="Antoine De Gieter">
+		<meta author="Alexis Beaujon">
+		<title>Molecular property calculations</title>
+
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	</head>
+
+	<body>
+<!-- BEGIN MENU -->
+<!-- JSF REPLACE WITH: <ui:include src="header.html" /> -->
+		<nav class="navbar navbar-default navbar-static-top" role="navigation">
+			<a class="navbar-brand" href="./">Molecular property calculations</a>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="active">
+					<a data-toggle="modal" href="#add-project">
+						<span class="text-success">
+							<span class="glyphicon glyphicon-plus"></span>&nbsp;
+							New project&nbsp;
+						</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+		<div class="modal fade" id="add-project">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<form action="" method="POST" role="form">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title">New project</h4>
+						</div>
+						<div class="modal-body">
+							<div class="form-group">
+								<label for="add-project-name">Name</label>
+								<input type="text" class="form-control" id="add-project-name" name="add-project-name" placeholder="Name">
+								<label for="add-project-description">Description</label>
+								<textarea class="form-control" id="add-project-description" name="add-project-description" placeholder="Description"></textarea>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-primary btn-sm">Submit</button>
+						</div>
+					</form>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+<!-- END MENU -->
+
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<h3>
+						${{PROJECT_NAME}}
+					</h3>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<p class="text-left">
+						${{PROJECT_DESCRIPTION}}
+					</p>
+					<p>
+						<small>Created on: ${{PROJECT_CREATION_TIME}}</small><br>
+						<small>Modified on: ${{PROJECT_MODIFICATION_TIME}}</small>
+					</p>
+				</div>
+
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<h4 class="text-left">
+						Molecules
+					</h4>
+					<ul>
+						<!--
+						  --
+						  -- Loop
+						  --
+						  -->
+					</ul>
+					<p class="text-left">
+						<button type="button" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus"></span></button>
+					</p>
+				</div>
+			</div>
+		</div>
+
+<!-- BEGIN MENU -->
+<!-- JSF REPLACE WITH: <ui:include src="footer.html" /> -->
+		<div class="panel-footer" style="bottom:0; left:0; right:0; position:fixed;">
+			&copy; 2014 - University of Portsmouth
+		</div>
+<!-- END MENU -->
+
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	</body>
+</html>
