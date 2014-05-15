@@ -5,6 +5,8 @@
  * @digest allow you toggle a column display in a table
  */
 
+var on = false;
+
 function addEvent(tableId) {
 	$(".on").off();
 	$(".off").off();
@@ -68,7 +70,12 @@ function columnHider(tableId, panelId, options) {
 		console.error('columnHider: wrong param options')
 	}
 
+	$('#'+panelId).append('<button class="btn btn-primary btn-block btn-xs"'
+		+' id="toggle-all" data-toggle="button">'
+		+' <span class="glyphicon glyphicon-eye-open"></span>&nbsp;'
+		+' Toggle all</button>');
 	$('#'+panelId).append('<ul></ul>');
+
 	for (var key in columnNames) {
 		$('#'+panelId+'>ul').append('<li class="on">'+columnNames[key]+'</li>');
 	}
@@ -93,6 +100,24 @@ function columnHider(tableId, panelId, options) {
 	}
 
 	addEvent(tableId);
+	$("#toggle-all").on("click", function(e) {
+		toggle(tableId, columnNames);
+	});
+}
+
+function toggle(tableId, columnNames) {
+	console.debug(on);
+	for (var key in columnNames) {
+		if (on) {
+			$('.on').removeClass('on').addClass('off');
+			hideColumn(tableId, columnNames[key]);
+		} else {
+			$('.off').removeClass('off').addClass('on');
+			showColumn(tableId, columnNames[key]);
+		}
+		addEvent(tableId);
+	}
+	on = !on;
 }
 
 function showColumn(tableId, columnName) {
