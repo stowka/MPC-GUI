@@ -6,7 +6,8 @@
 		<meta author="Alexis Beaujon">
 		<title>Molecular property calculations</title>
 
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 
 	<body>
@@ -14,16 +15,6 @@
 <!-- JSF REPLACE WITH: <ui:include src="header.html" /> -->
 		<nav class="navbar navbar-default navbar-static-top" role="navigation">
 			<a class="navbar-brand" href="./">Molecular property calculations</a>
-			<ul class="nav navbar-nav navbar-right">
-				<li class="active">
-					<a data-toggle="modal" href="#add-project">
-						<span class="text-success">
-							<span class="glyphicon glyphicon-plus"></span>&nbsp;
-							New project&nbsp;
-						</span>
-					</a>
-				</li>
-			</ul>
 		</nav>
 		<div class="modal fade" id="add-project">
 			<div class="modal-dialog">
@@ -56,82 +47,151 @@
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<h3>
-						Projects
+						{Project name}
 					</h3>
 					<p class="text-center">
 						<div class="input-group input-group-sm">
-							<input type="search" class="form-control" id="filter" placeholder="Filter (case-sensitive)" autofocus>
+							<input type="search" class="form-control" id="filter" placeholder="Filter (regular expression case-insensitive)" autofocus>
 							<span class="input-group-addon"><span class="glyphicon glyphicon-filter"></span></span>
 						</div>
 					</p>
 				</div>
 			</div>
 
-			<table class="table table-bordered table-hover">
-				<thead>
-					<tr>
-						<th>#</th>
-						<th>Name</th>
-						<th>Created on</th>
-						<th>Modified on</th>
-						<th></th>
-					</tr>
-				</thead>
-				<tbody id="projects">
+			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+				<div id="panel">
+					Toggle properties
+				</div>
+			</div>
 
-					<!--
-					  --
-					  -- Loop
-					  --
-					  -->
+			<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
 
-					<tr>
-						<td>76</td>
-						<td>
-							<a href="project.html" class="text-primary">Project_1</a>
-						</td>
-						<td>2014-04-11</td>
-						<td>2014-04-15</td>
-						<td class="text-center">
-							<a href="#" onclick="return confirm('Are you sure?');" class="text-danger"><span class="glyphicon glyphicon-remove"></span></a>
-						</td>
-					</tr>
-					<tr>
-						<td>45</td>
-						<td>
-							<a href="project.html" class="text-primary">Blabla</a>
-						</td>
-						<td>2014-04-10</td>
-						<td>2014-04-10</td>
-						<td class="text-center">
-							<a href="#" onclick="return confirm('Are you sure?');" class="text-danger"><span class="glyphicon glyphicon-remove"></span></a>
-						</td>
-					</tr>
-					<tr>
-						<td>90</td>
-						<td>
-							<a href="project.html" class="text-primary">Wow</a>
-						</td>
-						<td>2014-04-14</td>
-						<td>2014-04-14</td>
-						<td class="text-center">
-							<a href="#" onclick="return confirm('Are you sure?');" class="text-danger"><span class="glyphicon glyphicon-remove"></span></a>
-						</td>
-					</tr>
-					<tr>
-						<td>18</td>
-						<td>
-							<a href="project.html" class="text-primary">Yoohoo</a>
-						</td>
-						<td>2014-04-09</td>
-						<td>2014-04-11</td>
-						<td class="text-center">
-							<a href="#" onclick="return confirm('Are you sure?');" class="text-danger"><span class="glyphicon glyphicon-remove"></span></a>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+				<table id="properties" class="table table-bordered table-hover">
+					<thead>
+						<tr>
+							<th data-sort="string" class="sortable"><strong>MOLECULE</strong></th>
+							<th data-sort="int" class="sortable">abonds</th>
+							<th data-sort="int" class="sortable">atoms</th>
+							<th data-sort="int" class="sortable">bonds</th>
+							<th data-sort="int" class="sortable">cansmi</th>
+							<th data-sort="int" class="sortable">dbonds</th>
+							<th>formula</th>
+							<th data-sort="int" class="sortable">HBA1</th>
+							<th data-sort="int" class="sortable">HBA2</th>
+							<th data-sort="int" class="sortable">HBD</th>
+							<th data-sort="int" class="sortable">InChI</th>
+							<th data-sort="int" class="sortable">InChIKey</th>
+							<th data-sort="int" class="sortable">L5</th>
+							<th data-sort="int" class="sortable">logP</th>
+							<th data-sort="int" class="sortable">MR</th>
+							<th data-sort="int" class="sortable">MW</th>
+							<th data-sort="int" class="sortable">nF</th>
+							<th data-sort="int" class="sortable">sbonds</th>
+							<th data-sort="int" class="sortable">tbonds</th>
+							<th data-sort="int" class="sortable">title</th>
+							<th data-sort="int" class="sortable">TPSA</th>
+						</tr>
+					</thead>
+					<tbody id="properties">
+							<tr>
+								<td>molecule_1</td>
+								<td>753</td>
+								<td>753</td>
+								<td>753</td>
+								<td>753</td>
+								<td>753</td>
+								<td>753</td>
+								<td>753</td>
+								<td>753</td>
+								<td>753</td>
+								<td>753</td>
+								<td>753</td>
+								<td>753</td>
+								<td>753</td>
+								<td>753</td>
+								<td>753</td>
+								<td>753</td>
+								<td>753</td>
+								<td>753</td>
+								<td>753</td>
+								<td>753</td>
+							</tr>
+							<tr>
+								<td>molecule_2</td>
+								<td>357</td>
+								<td>357</td>
+								<td>357</td>
+								<td>357</td>
+								<td>357</td>
+								<td>357</td>
+								<td>357</td>
+								<td>357</td>
+								<td>357</td>
+								<td>357</td>
+								<td>357</td>
+								<td>357</td>
+								<td>357</td>
+								<td>357</td>
+								<td>357</td>
+								<td>357</td>
+								<td>357</td>
+								<td>357</td>
+								<td>357</td>
+								<td>357</td>
+							</tr>
+							<tr>
+								<td>molecule_3</td>
+								<td>537</td>
+								<td>537</td>
+								<td>537</td>
+								<td>537</td>
+								<td>537</td>
+								<td>537</td>
+								<td>537</td>
+								<td>537</td>
+								<td>537</td>
+								<td>537</td>
+								<td>537</td>
+								<td>537</td>
+								<td>537</td>
+								<td>537</td>
+								<td>537</td>
+								<td>537</td>
+								<td>537</td>
+								<td>537</td>
+								<td>537</td>
+								<td>537</td>
+							</tr>
+							<tr>
+								<td>molecule_4</td>
+								<td>573</td>
+								<td>573</td>
+								<td>573</td>
+								<td>573</td>
+								<td>573</td>
+								<td>573</td>
+								<td>573</td>
+								<td>573</td>
+								<td>573</td>
+								<td>573</td>
+								<td>573</td>
+								<td>573</td>
+								<td>573</td>
+								<td>573</td>
+								<td>573</td>
+								<td>573</td>
+								<td>573</td>
+								<td>573</td>
+								<td>573</td>
+								<td>573</td>
+							</tr>
+					</tbody>
+				</table>
+				
+			</div>
 		</div>
+
+		<div class="margin-md"></div>
 
 <!-- BEGIN MENU -->
 <!-- JSF REPLACE WITH: <ui:include src="footer.html" /> -->
@@ -142,14 +202,30 @@
 
 		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/stupidtable.min.js"></script>
+		<!--script type="text/javascript" src="js/jquery.columnmanager.min.js"></script-->
+		<script type="text/javascript" src="js/columnHider.js"></script>
 		<script type="text/javascript">
 			$("#filter").keyup(function() {
-				var rows = $("#projects").find("tr").hide();
-				var data = this.value.split(" ");
-				$.each(data, function(i, v) {
-					rows.filter(":contains('" + v + "')").show();
+				var value = $(this).val();
+				$("#properties > tr").each(function() {
+					if ($(this).text().search(new RegExp(value, "i")) > -1) {
+						$(this).show();
+					} else {
+						$(this).hide();
+					}
 				});
 			});
+			$("table").stupidtable();
+
+			columnHider('properties', 'panel', {
+				amount: 'range',
+				range: [1],
+				hide: 'indexes',
+				hidden: [1, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20]
+			});
+
+			// $("#properties").columnManager({listTargetID:'target', onClass: 'simpleon', offClass: 'simpleoff', saveState: false}); 
 		</script>
 	</body>
 </html>
